@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Business Media Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Student Entrepreneur Media Center</h1>
+            <p>Learn how to start your business journey while in school</p>
+        </header>
+
+        <main class="media-section">
+            <!-- Video Player -->
+            <div class="player-wrapper">
+                <video id="mainVideo" class="video-player" poster="media/video_thumbnail.png">
+                    <source src="media/how-to-start-a-business-as-a-student-gohar-khan.mp4" type="video/mp4">
+                    <track id="englishTrack" kind="captions" src="english.vtt" srclang="en" label="English" default>
+                    <track id="spanishTrack" kind="captions" src="spanish.vtt" srclang="es" label="Español">
+                    <track id="frenchTrack" kind="captions" src="french.vtt" srclang="fr" label="Français">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Custom Controls -->
+                <div class="custom-controls">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="time-display">
+                            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="control-buttons">
+                        <button id="playPauseBtn" class="control-btn primary" title="Play/Pause">
+                            <span class="play-icon">▶</span>
+                        </button>
+                        <button id="rewindBtn" class="control-btn" title="Rewind 10s">⏪ 10s</button>
+                        <button id="forwardBtn" class="control-btn" title="Forward 10s">10s ⏩</button>
+                        <button id="slowBtn" class="control-btn" title="0.5x Speed">🐢 Slow</button>
+                        <button id="normalBtn" class="control-btn" title="1x Speed">Normal</button>
+                        <button id="fastBtn" class="control-btn" title="2x Speed">Fast 🐇</button>
+                        
+                        <div class="volume-control">
+                            <button id="muteBtn" class="control-btn" title="Mute">🔊</button>
+                            <input type="range" id="volumeSlider" min="0" max="100" value="100" class="volume-slider">
+                        </div>
+
+                        <button id="transcriptBtn" class="control-btn" title="Toggle Transcript">📝 Transcript</button>
+                        
+                        <div class="language-control">
+                            <label for="languageSelect" class="language-label">🌐</label>
+                            <select id="languageSelect" class="language-select" title="Select Language">
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                                <option value="fr">Français</option>
+                            </select>
+                        </div>
+                        
+                        <button id="fullscreenBtn" class="control-btn" title="Fullscreen">⛶</button>
+                    </div>
+                </div>
+
+                <!-- Transcript Display -->
+                <div class="transcript-container" id="transcriptContainer" style="display: none;">
+                    <h3>📝 Video Transcript</h3>
+                    <div class="transcript-content" id="transcriptContent">
+                        <p class="loading">Loading transcript...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cuepoint Triggers -->
+            <div class="cuepoints-section">
+                <h2>📍 Key Moments</h2>
+                <div class="cuepoints-list" id="cuepointsList">
+                    <!-- Cuepoints will be added dynamically -->
+                </div>
+                <button id="addCuepointBtn" class="add-cuepoint-btn">+ Add Key Moment</button>
+            </div>
+
+            <!-- Interactive Content Area -->
+            <div class="content-area" id="contentArea">
+                <h3>💡 Interactive Content</h3>
+                <p>Content will appear here based on video timestamps!</p>
+            </div>
+        </main>
+
+        <!-- Audio Player Section -->
+        <section class="audio-section">
+            <h2>🎵 Audio Companion: Business Podcast</h2>
+            <div class="audio-player-wrapper">
+                <audio id="audioPodcast" class="audio-player">
+                    <source src="podcast-sample.mp3" type="audio/mpeg">
+                    <source src="podcast-sample.ogg" type="audio/ogg">
+                    Your browser does not support the audio element.
+                </audio>
+                
+                <div class="audio-controls">
+                    <button id="audioPlayBtn" class="control-btn primary">▶ Play Podcast</button>
+                    <div class="audio-progress">
+                        <div class="audio-progress-bar" id="audioProgressBar">
+                            <div class="audio-progress-fill" id="audioProgressFill"></div>
+                        </div>
+                    </div>
+                    <span id="audioTime">0:00 / 0:00</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
